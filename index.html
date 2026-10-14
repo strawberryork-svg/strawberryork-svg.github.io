@@ -246,6 +246,14 @@
             margin-bottom: 1.5rem;
         }
 
+        .card .sub-note {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            font-style: italic;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
         .card-links {
             display: flex;
             flex-direction: column;
@@ -266,7 +274,7 @@
             border-color: var(--accent-gold);
         }
 
-        /* Volumes Layout */
+        /* Volumes & Arcs Layout */
         .volumes-container {
             margin-top: 3rem;
             background: rgba(10, 10, 10, 0.8);
@@ -308,11 +316,29 @@
             left: -1rem;
         }
 
+        .archive-note {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
         /* About & Contact */
         .about-content {
             text-align: center;
             max-width: 700px;
             margin: 0 auto;
+        }
+
+        .author-message {
+            background: rgba(139, 0, 0, 0.1);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            color: #fff;
+            font-size: 1.05rem;
         }
 
         .pull-quote {
@@ -357,7 +383,7 @@
         <div class="nav-brand">THE_FALLEN</div>
         <div class="nav-links">
             <a href="#works">Works</a>
-            <a href="#volumes">Volumes</a>
+            <a href="#volumes">Archives</a>
             <a href="#upcoming">Upcoming</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
@@ -395,10 +421,14 @@
             <div class="card">
                 <h3>Kung Fu Panda 4</h3>
                 <span class="status">Completed Fanfic</span>
-                <p>A continuation of the legendary Dragon Warrior's journey, exploring new threats and untold chi mastery.</p>
+                <p>
+                    A continuation of the legendary Dragon Warrior's journey, exploring new threats and untold chi mastery.
+                    <span class="sub-note">(There's only 1 Volume, but different arcs That Make for volumes)</span>
+                </p>
                 <div class="card-links">
                     <a href="http://wbnv.in/a/8cj7q21" target="_blank" rel="noopener noreferrer" class="card-link">2025 Edition (Webnovel)</a>
                     <a href="https://www.wattpad.com/story/341925446?utm_source=android&utm_medium=link&utm_content=story_info&wp_page=story_details_button" target="_blank" rel="noopener noreferrer" class="card-link">2023 Edition (Wattpad)</a>
+                    <a href="#kfp-archive" class="card-link">View Arc &amp; Chapter Archive</a>
                 </div>
             </div>
         </div>
@@ -452,6 +482,77 @@
         </div>
     </section>
 
+    <section id="kfp-archive" class="scroll-anim">
+        <h2 class="section-title">Kung Fu Panda 4 Archive</h2>
+        <p style="text-align: center; color: #aaa; margin-bottom: 2rem;">
+            1 Volume structured across 7 story arcs. Read on <a href="http://wbnv.in/a/8cj7q21" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">Webnovel (2025)</a> or <a href="https://www.wattpad.com/story/341925446?utm_source=android&utm_medium=link&utm_content=story_info&wp_page=story_details_button" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">Wattpad (2023)</a>.
+        </p>
+
+        <div class="volumes-container">
+            <div class="volume-item">
+                <h4>Arc 1: Red Blooded Past</h4>
+                <ul class="chapter-list">
+                    <li>Chapter 1: The Untold Truth</li>
+                </ul>
+            </div>
+
+            <div class="volume-item">
+                <h4>Arc 2: The Beginning</h4>
+                <ul class="chapter-list">
+                    <li>Chapter 2: An Unexpected Return</li>
+                    <li>Chapter 3: The Art of Demolition</li>
+                </ul>
+            </div>
+
+            <div class="volume-item">
+                <h4>Arc 3: The stranger</h4>
+                <ul class="chapter-list">
+                    <li>Chapter 4: Journey With a Stranger part 1</li>
+                    <li>Chapter 5: Journey with a stranger part 2</li>
+                </ul>
+            </div>
+
+            <div class="volume-item">
+                <h4>Arc 4: Threads of Past and Truth</h4>
+                <ul class="chapter-list">
+                    <li>Chapter 6: The Forgotten Panda</li>
+                    <li>Chapter 7: The Past and The Present</li>
+                    <li>Chapter 8: The Destination</li>
+                </ul>
+            </div>
+
+            <div class="volume-item">
+                <h4>Arc 5: The Echoes Of Fate</h4>
+                <ul class="chapter-list">
+                    <li>Chapter 9: Deathmatch</li>
+                    <li>Chapter 10: I know the answer now</li>
+                </ul>
+            </div>
+
+            <div class="volume-item">
+                <h4>Arc 6: The Showdown</h4>
+                <ul class="chapter-list">
+                    <li>Chapter 11: The Showdown</li>
+                    <li>Chapter 12: Rematch and Victory</li>
+                </ul>
+            </div>
+
+            <div class="volume-item">
+                <h4>Arc 7: Death Marked Destiny</h4>
+                <ul class="chapter-list">
+                    <li>Chapter 13: The Doom</li>
+                    <li>Chapter 14: The Unstoppable Curse</li>
+                    <li>Chapter 15: The End is Near</li>
+                    <li>Chapter 16: It all Ends Here.</li>
+                </ul>
+            </div>
+
+            <div class="archive-note">
+                Note - Further chapters are either epilogues Or a Short aftermath.
+            </div>
+        </div>
+    </section>
+
     <section id="upcoming" class="scroll-anim">
         <h2 class="section-title">Upcoming Projects</h2>
         <div class="card-grid">
@@ -474,6 +575,10 @@
         <div class="about-content">
             <p>Writing under the pseudonym THE_FALLEN, the author crafts expansive mythologies and dark, character driven narratives. Operating entirely behind the veil of the written word, the focus remains purely on the story, the worldbuilding, and the psychological depths of the characters.</p>
             
+            <div class="author-message">
+                "Today I feel very proud to Present you all My Website, It's 2026 when I have finally Made it Live thanks for your wait everyone"
+            </div>
+
             <div class="pull-quote">
                 "There is no light without the void. The best stories are found in the shadows between them."
             </div>
