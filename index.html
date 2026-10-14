@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE_FALLEN | Author Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
+
+        :root {
+            --bg-color: #0a0a0a;
+            --text-main: #e0e0e0;
+            --accent-red: #8b0000;
+            --accent-gold: #c5a059;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .nav-brand {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-red);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(139,0,0,0.15) 0%, rgba(197,160,89,0.05) 40%, rgba(10,10,10,0) 70%);
+            z-index: -1;
+            animation: pulseGlow 8s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.9); }
+            100% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .author-badge {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            border: 1px solid var(--accent-gold);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            letter-spacing: 5px;
+            color: #fff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(139,0,0,0.5);
+        }
+
+        .hero p.tagline {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            color: #aaa;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--accent-gold);
+            background: transparent;
+            color: var(--accent-gold);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover, .btn.primary {
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+            color: #fff;
+        }
+
+        .highlights {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .highlight-item {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(139,0,0,0.3);
+            padding-bottom: 1rem;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 2rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-red);
+        }
+
+        .card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .status {
+            font-size: 0.8rem;
+            color: var(--accent-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #bbb;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .card-link {
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .card-link:hover {
+            border-color: var(--accent-gold);
+        }
+
+        /* Volumes Layout */
+        .volumes-container {
+            margin-top: 3rem;
+            background: rgba(10, 10, 10, 0.8);
+            border-left: 2px solid var(--accent-red);
+            padding: 2rem;
+        }
+
+        .volume-item {
+            margin-bottom: 2rem;
+        }
+        
+        .volume-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .volume-item h4 {
+            font-family: var(--font-heading);
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .volume-item .chapter-list {
+            list-style: none;
+            padding-left: 1rem;
+        }
+        
+        .volume-item .chapter-list li {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 0.3rem;
+            position: relative;
+        }
+        
+        .volume-item .chapter-list li::before {
+            content: '•';
+            color: var(--accent-red);
+            position: absolute;
+            left: -1rem;
+        }
+
+        /* About & Contact */
+        .about-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .pull-quote {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--accent-red);
+            font-style: italic;
+            margin: 2rem 0;
+        }
+
+        .contact-flex {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                margin-top: 1rem;
+                width: 100%;
+            }
+            .highlights {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-brand">THE_FALLEN</div>
+        <div class="nav-links">
+            <a href="#works">Works</a>
+            <a href="#volumes">Volumes</a>
+            <a href="#upcoming">Upcoming</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="author-badge">Author Written</div>
+        <h1>THE_FALLEN</h1>
+        <p class="tagline">Dark worlds. Layered stories. Heroes and villains who are never as simple as they look.</p>
+        <div class="btn-group">
+            <a href="#works" class="btn primary">Read the Stories</a>
+            <a href="#upcoming" class="btn">Upcoming</a>
+        </div>
+        <div class="highlights">
+            <div class="highlight-item">Fantasy / Mythic Realms</div>
+            <div class="highlight-item">Thriller / Twisted Minds</div>
+            <div class="highlight-item">Sagas / Epic Wars</div>
+        </div>
+    </header>
+
+    <section id="works" class="scroll-anim">
+        <h2 class="section-title">The Works</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>SUPER TRANSFORMERS</h3>
+                <span class="status">Ongoing Webnovel</span>
+                <p>An epic saga of war, shifting allegiances, and shattered histories. Currently in its fourth volume.</p>
+                <div class="card-links">
+                    <a href="http://wbnv.in/a/dajm79q" target="_blank" rel="noopener noreferrer" class="card-link">Read on Webnovel</a>
+                    <a href="#volumes" class="card-link">View Volume Archives</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Kung Fu Panda 4</h3>
+                <span class="status">Completed Fanfic</span>
+                <p>A continuation of the legendary Dragon Warrior's journey, exploring new threats and untold chi mastery.</p>
+                <div class="card-links">
+                    <a href="http://wbnv.in/a/8cj7q21" target="_blank" rel="noopener noreferrer" class="card-link">2025 Edition (Webnovel)</a>
+                    <a href="https://www.wattpad.com/story/341925446?utm_source=android&utm_medium=link&utm_content=story_info&wp_page=story_details_button" target="_blank" rel="noopener noreferrer" class="card-link">2023 Edition (Wattpad)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="volumes" class="scroll-anim">
+        <h2 class="section-title">Super Transformers Archive</h2>
+        <p style="text-align: center; color: #aaa; margin-bottom: 2rem;">Explore the complete chapter index for <a href="http://wbnv.in/a/dajm79q" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">SUPER TRANSFORMERS</a>.</p>
+        
+        <div class="volumes-container">
+            <div class="volume-item">
+                <h4>Volume 1: The Bloody Past</h4>
+                <ul class="chapter-list">
+                    <li>Chapter 1: The Weaver and the Void</li>
+                    <li>Chapter 2: The Fall</li>
+                    <li>Chapter 3: The Titan</li>
+                </ul>
+            </div>
+            
+            <div class="volume-item">
+                <h4>Volume 2: A New Era</h4>
+                <ul class="chapter-list">
+                    <li>Chapter 1: The Conclusion</li>
+                    <li>Chapter 2: The grand new start</li>
+                    <li>Chapter 3: The Chains and Rattle</li>
+                    <li>Chapter 4: That Night</li>
+                </ul>
+            </div>
+            
+            <div class="volume-item">
+                <h4>Volume 3: The Breach</h4>
+                <ul class="chapter-list">
+                    <li>Chapter 1: The Meet Up</li>
+                    <li>Chapter 2: The crusaders</li>
+                    <li>Chapter 3: The Tantrum</li>
+                    <li>Chapter 4: The surprise</li>
+                </ul>
+            </div>
+
+            <div class="volume-item">
+                <h4>Volume 4: The Hope <span style="font-size: 0.8rem; color: var(--accent-red); margin-left: 10px;">[LIVE NOW]</span></h4>
+                <ul class="chapter-list">
+                    <li>Chapter 1: The Diguise</li>
+                    <li>Chapter 2: The Arrival</li>
+                    <li>Chapter 3: The Demon</li>
+                    <li>Chapter 4: The golden Hour</li>
+                    <li>Chapter 5: TBA</li>
+                    <li>Chapter 6: TBA</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="upcoming" class="scroll-anim">
+        <h2 class="section-title">Upcoming Projects</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>Mowgli: The Legend of Jungle</h3>
+                <span class="status">Coming Soon</span>
+                <p>A serious, darker reimagining of the classic jungle tale, exploring survival, primal instinct, and the true cost of the wild.</p>
+            </div>
+            
+            <div class="card">
+                <h3>What Am I?</h3>
+                <span class="status">Coming Soon</span>
+                <p>An original psychological thriller. Reality fractures, trust is an illusion, and the greatest threat lies within the mind.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="scroll-anim">
+        <h2 class="section-title">About the Author</h2>
+        <div class="about-content">
+            <p>Writing under the pseudonym THE_FALLEN, the author crafts expansive mythologies and dark, character driven narratives. Operating entirely behind the veil of the written word, the focus remains purely on the story, the worldbuilding, and the psychological depths of the characters.</p>
+            
+            <div class="pull-quote">
+                "There is no light without the void. The best stories are found in the shadows between them."
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="scroll-anim">
+        <h2 class="section-title">Follow the Story</h2>
+        <div class="contact-flex">
+            <a href="http://wbnv.in/a/dajm79q" target="_blank" rel="noopener noreferrer" class="btn primary">Read on Webnovel</a>
+            <a href="#" class="btn">@ordinary_anime_lover</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 THE_FALLEN.
+    </footer>
+
+    <script>
+        // Scroll Fade-in Animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-anim').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
